@@ -30,11 +30,11 @@ function setActiveTab() {
   localStorage.setItem("activeTabIndex", activeTabIndex === -1 ? 0 : activeTabIndex);
 }
 
-function expect(input, output) {
-  if (_.isEqual(input, output)) {
+function expect(input, expected) {
+  if (_.isEqual(input, expected)) {
     return true;
   } else {
-    console.error('Test failed\n', 'Expected:', output, '\nRecieved:', input);
+    console.error('Test failed\n', 'Expected:', expected, '\nRecieved:', input);
     throw new Error('Test failed');
   }
 }
@@ -114,9 +114,9 @@ function evalExercise(element) {
   const exercise = element.dataset.exercise - 1;
   try {
     const currentExercise = levelData[level][exercise];
-    currentExercise.conditions.forEach(([input, output]) => {
-      const result = currentExercise.callback(input);
-      expect(result, output);
+    currentExercise.conditions.forEach(({arguments, expected}) => {
+      const result = currentExercise.callback(...arguments);
+      expect(result, expected);
     })
 
     showSuccess(element);

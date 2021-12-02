@@ -1,4 +1,4 @@
-/** @typedef {{ title: string, desc: string, callback, conditions: [A, B][] }[]} LevelData  */
+/** @typedef {{ title: string, desc: string, callback, conditions: {arguments: any[] expected: B}[] }[]} LevelData  */
 const userA = {
   first: 'Jeanette',
   last: 'Marshall',
@@ -24,9 +24,9 @@ const level1 = [
     desc: 'Use the object data to return the password for the user',
     callback: level1exercise1,
     conditions: [
-      [userA, 'pancakes'],
-      [userB, 'asd09an21a0-89d21'],
-      [userC, 'passw0rd']
+      {arguments: [userA], expected: 'pancakes'},
+      {arguments: [userB], expected: 'asd09an21a0-89d21'},
+      {arguments: [userC], expected: 'passw0rd'}
     ]
   },
   {
@@ -34,9 +34,9 @@ const level1 = [
     desc: 'Use the object data to return the full name for the user',
     callback: level1exercise2,
     conditions: [
-      [userA, 'Jeanette Marshall'],
-      [userB, 'Sally Smith'],
-      [userC, 'Sharon Stevens']
+      { arguments: [userA], expected: 'Jeanette Marshall'},
+      { arguments: [userB], expected: 'Sally Smith'},
+      { arguments: [userC], expected: 'Sharon Stevens'}
     ]
   },
   {
@@ -44,9 +44,9 @@ const level1 = [
     desc: 'use the object data to return a string "Hello, FirstName LastName!"',
     callback: level1exercise3,
     conditions: [
-      [userA, 'Hello, Jeanette Marshall!'],
-      [userB, 'Hello, Sally Smith!'],
-      [userC, 'Hello, Sharon Stevens!']
+      { arguments: [userA], expected: 'Hello, Jeanette Marshall!'},
+      { arguments: [userB], expected: 'Hello, Sally Smith!'},
+      { arguments: [userC], expected: 'Hello, Sharon Stevens!'}
     ]
   },
   {
@@ -54,9 +54,9 @@ const level1 = [
     desc: "use the object data to calculate the user's age and return it",
     callback: level1exercise4,
     conditions: [
-      [userA, new Date().getFullYear() - userA.birthYear],
-      [userB, new Date().getFullYear() - userB.birthYear],
-      [userC, new Date().getFullYear() - userC.birthYear]
+      { arguments: [userA], expected: new Date().getFullYear() - userA.birthYear},
+      { arguments: [userB], expected: new Date().getFullYear() - userB.birthYear},
+      { arguments: [userC], expected: new Date().getFullYear() - userC.birthYear}
     ]
   },
   {
@@ -64,9 +64,9 @@ const level1 = [
     desc: "use the object data to return the user's full name in all uppercase letters",
     callback: level1exercise5,
     conditions: [
-      [userA, 'JEANETTE MARSHALL'],
-      [userB, 'SALLY SMITH'],
-      [userC, 'SHARON STEVENS']
+      { arguments: [userA], expected: 'JEANETTE MARSHALL'},
+      { arguments: [userB], expected: 'SALLY SMITH'},
+      { arguments: [userC], expected: 'SHARON STEVENS'}
     ]
   },
   {
@@ -74,9 +74,9 @@ const level1 = [
     desc: "use the object data to return the user's initials  (i.e. AL from Ada Lovelace)",
     callback: level1exercise6,
     conditions: [
-      [userA, 'JM'],
-      [userB, 'SS'],
-      [userC, 'SS']
+      { arguments: [userA], expected: 'JM'},
+      { arguments: [userB], expected: 'SS'},
+      { arguments: [userC], expected: 'SS'}
     ]
   },
 ]
@@ -131,9 +131,9 @@ const level2 = [
     desc: 'Use the object data to return the user\'s password',
     callback: level2exercise1,
     conditions: [
-      [level2userA, 'pancakes'],
-      [level2userB, 'asd09an21a0-89d21'],
-      [level2userC, 'passw0rd']
+      { arguments: [level2userA], expected: 'pancakes'},
+      { arguments: [level2userB], expected: 'asd09an21a0-89d21'},
+      { arguments: [level2userC], expected: 'passw0rd'}
     ]
   },
   {
@@ -141,9 +141,9 @@ const level2 = [
     desc: 'Use the object data to return the user\'s full name',
     callback: level2exercise2,
     conditions: [
-      [level2userA, 'Jeanette Marshall'],
-      [level2userB, 'Sally Smith'],
-      [level2userC, 'Sharon Stevens']
+      { arguments: [level2userA], expected: 'Jeanette Marshall'},
+      { arguments: [level2userB], expected: 'Sally Smith'},
+      { arguments: [level2userC], expected: 'Sharon Stevens'}
     ]
   },
   {
@@ -151,9 +151,9 @@ const level2 = [
     desc: 'Use the object data to return the user\'s initials',
     callback: level2exercise3,
     conditions: [
-      [level2userA, 'JM'],
-      [level2userB, 'SS'],
-      [level2userC, 'SS']
+      { arguments: [level2userA], expected: 'JM'},
+      { arguments: [level2userB], expected: 'SS'},
+      { arguments: [level2userC], expected: 'SS'}
     ]
   },
   {
@@ -161,9 +161,9 @@ const level2 = [
     desc: 'Use the object data to return true if the user has a password that is at least 8 characters long, otherwise return false',
     callback: level2exercise4,
     conditions: [
-      [level2userA, true],
-      [level2userB, true],
-      [level2userC, true]
+      { arguments: [level2userA], expected: true},
+      { arguments: [level2userB], expected: true},
+      { arguments: [level2userC], expected: true}
     ]
   },
   {
@@ -171,9 +171,9 @@ const level2 = [
     desc: 'Use the object data to return true if the has logged in in the last 30 days, otherwise return false',
     callback: level2exercise5,
     conditions: [
-      [level2userA, true],
-      [level2userB, false],
-      [level2userC, false]
+      { arguments: [level2userA], expected: true},
+      { arguments: [level2userB], expected: false},
+      { arguments: [level2userC], expected: false}
     ]
   }
 ]
@@ -227,17 +227,17 @@ const level3 = [
     desc: 'Use the products array to loop through the array and return the sum of all prices',
     callback: level3exercise1,
     conditions: [
-      [products1, 699 + 799 + 599],
-      [products2, 19.99 + 17.99 + 14.99]
+      { arguments: [products1], expected: 699 + 799 + 599 },
+      { arguments: [products2], expected: 19.99 + 17.99 + 14.99 }
     ]
   },
   {
     title: 'Highest priced product',
-    desc: 'Use the products array to loop through the array and return the product with the highest price',
+    desc: 'Use the products array to loop through the array and return the name of product with the highest price',
     callback: level3exercise2,
     conditions: [
-      [products1, 'iPhone'],
-      [products2, 'Metallica T-Shirt']
+      { arguments: [products1], expected: 'Samsung Galaxy S10' },
+      { arguments: [products2], expected: 'Metallica T-Shirt' }
     ]
   },
   {
@@ -245,8 +245,8 @@ const level3 = [
     desc: 'Use the products array to loop through the array and return the name of the product with the lowest price',
     callback: level3exercise3,
     conditions: [
-      [products1, 'Samsung Galaxy S10'],
-      [products2, 'Google T-Shirt']
+      { arguments: [products1], expected: 'Google Pixel 3' },
+      { arguments: [products2], expected: 'Apple T-Shirt' }
     ]
   },
   {
@@ -254,17 +254,17 @@ const level3 = [
     desc: 'Use the products array to loop through the array and return the average price of all products',
     callback: level3exercise4,
     conditions: [
-      [products1, (699 + 799 + 599) / 3],
-      [products2, (19.99 + 17.99 + 14.99) / 3]
+      { arguments: [products1], expected: (699 + 799 + 599) / 3 },
+      { arguments: [products2], expected: (19.99 + 17.99 + 14.99) / 3 }
     ]
   },
   {
-    title: 'Format price and name',
+    title: 'Format price and name of lowest priced product',
     desc: 'Use the products array to loop through the array and return the name and price of the product with the lowest price',
     callback: level3exercise5,
     conditions: [
-      [products1, 'Samsung Galaxy S10: $699'],
-      [products2, 'Google T-Shirt: $17.99']
+      { arguments: [products1], expected: 'Google Pixel 3: $599' },
+      { arguments: [products2], expected: 'Apple T-Shirt: $14.99' }
     ],
   },
   {
@@ -272,7 +272,7 @@ const level3 = [
     desc: 'Use the products array to loop through the array and return an array of products that are in stock',
     callback: level3exercise6,
     conditions: [
-      [products1, [{
+      { arguments: [products1], expected: [{
         name: 'iPhone',
         price: 699,
         color: 'white',
@@ -282,8 +282,8 @@ const level3 = [
         price: 799,
         color: 'black',
         stock: 5
-      }]],
-      [products2, [{
+      }]},
+      { arguments: [products2], expected: [{
         name: 'Metallica T-Shirt',
         price: 19.99,
         color: 'black',
@@ -293,28 +293,37 @@ const level3 = [
         price: 17.99,
         color: 'green',
         stock: 5
-      }]]
-      ]
-    },
-    // {
-    //   title: 'Filter by color',
-    //   desc: 'Use the products array to loop through the array and return an array of products that match the color parameter',
-    //   callback: level3exercise7,
-    //   conditions: [
-    //     [[products1, 'white'], [{
-    //       name: 'iPhone',
-    //       price: 699,
-    //       color: 'white',
-    //       stock: 10
-    //     }]],
-    //     [[products2, 'black'], [{
-    //       name: 'Metallica T-Shirt',
-    //       price: 19.99,
-    //       color: 'black',
-    //       stock: 10
-    //     }]]
-    //   ]
-    // },
+      }]}
+    ]
+  },
+  {
+    title: 'Filter by color',
+    desc: 'Use the products array to loop through the array and return an array of products that match the color parameter',
+    callback: level3exercise7,
+    conditions: [
+      { arguments: [products1, 'white'], expected: [{
+        name: 'iPhone',
+        price: 699,
+        color: 'white',
+        stock: 10
+      }]},
+      { arguments: [products2, 'black'], expected: [{
+        name: 'Metallica T-Shirt',
+        price: 19.99,
+        color: 'black',
+        stock: 10
+      }]}
+    ]
+  },
+  {
+    title: 'Format prices and names',
+    desc: 'Use the products array to loop through the array and return an array of strings with the name and price of each product',
+    callback: level3exercise8,
+    conditions: [
+      { arguments: [products1], expected: ['iPhone: $699', 'Samsung Galaxy S10: $799', 'Google Pixel 3: $599'] },
+      { arguments: [products2], expected: ['Metallica T-Shirt: $19.99', 'Google T-Shirt: $17.99', 'Apple T-Shirt: $14.99'] }
+    ]
+  },
 ]
 
 const levelData = [
