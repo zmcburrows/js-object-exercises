@@ -31,7 +31,7 @@ function setActiveTab() {
 }
 
 function expect(input, output) {
-  if (input === output) {
+  if (_.isEqual(input, output)) {
     return true;
   } else {
     console.error('Test failed\n', 'Expected:', output, '\nRecieved:', input);
