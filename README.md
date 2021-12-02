@@ -1,7 +1,4 @@
-# JavaScript 101 Exercises
-
-The exercises below are designed to get you comfortable writing basic JavaScript. They’re organized into seven levels. Each level corresponds to a .js file in the dc-logo directory. Write your solutions to each exercise inside their corresponding functions. Press the "Run" button for each exercise to see if you got the right answer!
-
+# JavaScript Object Exercises
 ## Setup
 
 1. Clone this repository to your computer
