@@ -38,7 +38,7 @@ function level1exercise2(user) {
 
 /**
  * Combining Properties with more data:
- * use the object data to return a string "Hello, FIRSNAME LASTNAME!"
+ * use the object data to return a string "Hello, FirstName LastName!"
  * @param {User} user
  * @returns {string}
  */

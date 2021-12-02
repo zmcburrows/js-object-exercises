@@ -41,7 +41,7 @@ const level1 = [
   },
   {
     title: 'Combining Properties with more data',
-    desc: 'use the object data to return a string "Hello, FIRSNAME LASTNAME!"',
+    desc: 'use the object data to return a string "Hello, FirstName LastName!"',
     callback: level1exercise3,
     conditions: [
       [userA, 'Hello, Jeanette Marshall!'],
