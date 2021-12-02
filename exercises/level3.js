@@ -36,7 +36,7 @@ const exampleProductArray = [
  * Looping through an array of objects
  * Use the products array to loop through the array and return the sum of all prices
  * @param {Product[]} products 
- * @returns {string}
+ * @returns {number}
  */
 function level3exercise1(products) {
 
@@ -75,8 +75,9 @@ function level3exercise4(products) {
 /**
  * Format price and name
  * Use the products array to loop through the array and return an array of strings with the name and price of each product
+ * e.g. iPhone: $499
  * @param {Product[]} products
- * @returns {string[]}
+ * @returns {string}
  */
 function level3exercise5(products) {
   
@@ -90,4 +91,15 @@ function level3exercise5(products) {
  */
 function level3exercise6(products) {
   return products.filter(product => product.stock > 0)
+}
+
+/**
+ * Filter by color
+ * Use the products array to loop through the array and return an array of products that match the color parameter
+ * @param {Product[]} products
+ * @param {string} color
+ * @returns {Product[]}
+ */
+function level3exercise7(products, color) {
+  return products.filter(product => product.color === color)
 }
