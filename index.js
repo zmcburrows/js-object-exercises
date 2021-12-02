@@ -126,7 +126,9 @@ function evalExercise(element) {
 }
 
 function main() {
-  buildLevel(levelData[0], 1);
+  levelData.forEach((level, index) => {
+    buildLevel(level, index + 1);
+  })
   restoreActiveTab();
 
   document.addEventListener('click', (e) => {
