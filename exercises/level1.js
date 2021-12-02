@@ -23,7 +23,7 @@ const user = {
  * @returns {string}
  */
 function level1exercise1(user) {
-  
+  return user.password
 }
 
 /**
@@ -33,9 +33,8 @@ function level1exercise1(user) {
  * @returns {string}
  */
 function level1exercise2(user) {
-
+  return`${user.first} ${user.last}`
 }
-
 /**
  * Combining Properties with more data:
  * use the object data to return a string "Hello, FIRSNAME LASTNAME!"
@@ -43,7 +42,7 @@ function level1exercise2(user) {
  * @returns {string}
  */
 function level1exercise3(user) {
-  
+  return `Hello, ${user.first} ${user.last}!`
 }
 
 /**
