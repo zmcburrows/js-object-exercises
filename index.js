@@ -18,6 +18,18 @@ function showSuccess(element) {
   }, 3000);
 }
 
+function restoreActiveTab() {
+  const activeTabIndex = localStorage.getItem("activeTabIndex") || 0;
+  document.querySelectorAll(".nav-link")[activeTabIndex].classList.add("active");
+  document.querySelectorAll(".tab-pane")[activeTabIndex].classList.add("active", "show");
+}
+
+function setActiveTab() {
+  const tabs = document.querySelectorAll(".nav-link");
+  const activeTabIndex = Array.from(tabs).findIndex(tab => tab.classList.contains("active"));
+  localStorage.setItem("activeTabIndex", activeTabIndex === -1 ? 0 : activeTabIndex);
+}
+
 function expect(input, output) {
   if (input === output) {
     return true;
@@ -50,7 +62,7 @@ function createTab(level) {
   const tab = document.createElement("li");
   tab.className = "nav-item";
   tab.innerHTML = `<a
-    class="nav-link"
+    class="nav-link level-tab"
     id="level-${level}-tab"
     data-toggle="tab"
     href="#lvl${level}"
@@ -113,4 +125,17 @@ function evalExercise(element) {
   }
 }
 
-buildLevel(levelData[0], 1);
+function main() {
+  levelData.forEach((level, index) => {
+    buildLevel(level, index + 1);
+  })
+  restoreActiveTab();
+
+  document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('level-tab')) {
+      setActiveTab();
+    }
+  })
+}
+
+main();

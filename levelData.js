@@ -41,7 +41,7 @@ const level1 = [
   },
   {
     title: 'Combining Properties with more data',
-    desc: 'use the object data to return a string "Hello, FIRSNAME LASTNAME!"',
+    desc: 'use the object data to return a string "Hello, FirstName LastName!"',
     callback: level1exercise3,
     conditions: [
       [userA, 'Hello, Jeanette Marshall!'],
@@ -81,6 +81,104 @@ const level1 = [
   },
 ]
 
+/** @type {UserData} */
+const level2userA = {
+  name: {
+    first: 'Jeanette',
+    last: 'Marshall',
+  },
+  security: {
+    password: 'pancakes',
+    pin: '1234',
+    lastLogin: new Date()
+  },
+  username: 'pcakes4life',
+  email: 'jmarshall@gmail.com'
+};
+
+const level2userB = {
+  name: {
+    first: 'Sally',
+    last: 'Smith',
+  },
+  security: {
+    password: 'asd09an21a0-89d21',
+    pin: '4444',
+    lastLogin: new Date()
+  },
+  username: 'sallys',
+  email: 'smithsally@gmail.com'
+}
+
+const level2userC = {
+  name: {
+    first: 'Sharon',
+    last: 'Stevens',
+  },
+  security: {
+    password: 'passw0rd',
+    pin: '4872',
+    lastLogin: new Date('2002-08-18')
+  },
+  username: 'sharonstevens98',
+  email: 'sstevens98@yahoo.com'
+}
+
+/** @type {LevelData[]} */
+const level2 = [
+  {
+    title: 'Working with Nested Object Properties',
+    desc: 'Use the object data to return the user\'s password',
+    callback: level2exercise1,
+    conditions: [
+      [level2userA, 'pancakes'],
+      [level2userB, 'asd09an21a0-89d21'],
+      [level2userC, 'passw0rd']
+    ]
+  },
+  {
+    title: 'Combining with Nested Object Properties',
+    desc: 'Use the object data to return the user\'s full name',
+    callback: level2exercise2,
+    conditions: [
+      [level2userA, 'Jeanette Marshall'],
+      [level2userB, 'Sally Smith'],
+      [level2userC, 'Sharon Stevens']
+    ]
+  },
+  {
+    title: 'Combining with Nested Object Properties (part 2)',
+    desc: 'Use the object data to return the user\'s initials',
+    callback: level2exercise3,
+    conditions: [
+      [level2userA, 'JM'],
+      [level2userB, 'SS'],
+      [level2userC, 'SS']
+    ]
+  },
+  {
+    title: 'Validating properties',
+    desc: 'Use the object data to return true if the user has a password that is at least 8 characters long, otherwise return false',
+    callback: level2exercise5,
+    conditions: [
+      [level2userA, true],
+      [level2userB, true],
+      [level2userC, true]
+    ]
+  },
+  {
+    title: 'Validating properties (part 2)',
+    desc: 'Use the object data to return true if the has logged in in the last 30 days, otherwise return false',
+    callback: level2exercise4,
+    conditions: [
+      [level2userA, true],
+      [level2userB, false],
+      [level2userC, false]
+    ]
+  }
+]
+
 const levelData = [
-  level1
+  level1,
+  level2
 ];
