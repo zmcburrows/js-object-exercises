@@ -36,7 +36,7 @@ const exampleProductArray = [
  * Looping through an array of objects
  * Use the products array to loop through the array and return the sum of all prices
  * @param {Product[]} products 
- * @returns {string}
+ * @returns {number}
  */
 function level3exercise1(products) {
 
@@ -44,9 +44,9 @@ function level3exercise1(products) {
 
 /**
  * Highest priced product
- * Use the products array to loop through the array and return the product with the highest price
+ * Use the products array to loop through the array and return the name of the product with the highest price
  * @param {Product[]} products
- * @returns {Product}
+ * @returns {string}
  */
 function level3exercise2(products) {
 
@@ -74,12 +74,13 @@ function level3exercise4(products) {
 
 /**
  * Format price and name
- * Use the products array to loop through the array and return an array of strings with the name and price of each product
+ * Use the products array to loop through the array and return the name and price of the product with the lowest price
+ * e.g. iPhone: $499
  * @param {Product[]} products
- * @returns {string[]}
+ * @returns {string}
  */
 function level3exercise5(products) {
-  
+
 }
 
 /**
@@ -89,5 +90,27 @@ function level3exercise5(products) {
  * @returns {Product[]}
  */
 function level3exercise6(products) {
-  return products.filter(product => product.stock > 0)
+
+}
+
+/**
+ * Filter by color
+ * Use the products array to loop through the array and return an array of products that match the color parameter
+ * @param {Product[]} products
+ * @param {string} color
+ * @returns {Product[]}
+ */
+function level3exercise7(products, color) {
+
+}
+
+/**
+ * Format prices and names
+ * Use the products array to loop through the array and return an array of strings with the name and price of each product
+ * e.g. iPhone: $499
+ * @param {Product[]} products
+ * @returns {string}
+ */
+function level3exercise8(products) {
+
 }
